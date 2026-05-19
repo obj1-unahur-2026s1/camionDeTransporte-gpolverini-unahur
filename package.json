@@ -1,7 +1,15 @@
 {
-  "name": "camionDeTransporte",
-  "version": "1.0.0",
-  "wollokVersion": "4.0.0",
-  "author": "hernan",
-  "license": "ISC"
-}
+    "name": "camion_de_transporte",
+    "version": "1.0.0",
+    "wollokVersion": "4.2.3",
+    "author": "Gabriel Polverini",
+    "contributors": [
+      "Gabriel Polverini <https://github.com/gpolverini-unahur>"
+    ],
+    "license": "ISC",
+    "description": "Sistema de gestión de cargas para camión de transporte con control de peso, peligrosidad y bultos",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/obj1-unahur-2026s1/camionDeTransporte-gpolverini-unahur.git"
+    }
+  }
