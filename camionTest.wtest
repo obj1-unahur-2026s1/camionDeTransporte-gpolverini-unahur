@@ -1,9 +1,0 @@
-import camion.*
-
-describe "group of test for camion" {
-
-  test "first test" {
-    assert.that(true)
-  }
-
-}

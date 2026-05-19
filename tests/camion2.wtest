@@ -1,0 +1,60 @@
+import src.cosas2.*
+import src.camion2.*
+
+describe "Camión | Verificar todos los métodos" {
+    method initialize() {
+        camion.cargar(bumblebee)
+        arenaAGranel.peso(150)
+        camion.cargar(arenaAGranel)
+        bateriaAntiarea.cargarMisilies()
+        camion.cargar(bateriaAntiarea)
+        paqueteDeLadrillos.cantidadDeLadrillos(80)
+        embalajeDeSeguridad.embalar(paqueteDeLadrillos)
+        camion.cargar(embalajeDeSeguridad)
+    }
+    test "Give: Camión | When: se consulta el peso total | Then: debería retornar 2400 Kg." {
+        //1000 + 800 + 150 - 10 + 300 + 160
+        assert.equals(2400, camion.pesoTotal())
+    }
+
+    test "Give: Camión | When: se consulta si todos los pesos de las cosas son pares | Then: debería retornar verdadero" {
+        assert.that(camion.sonParesLosPesosDeLasCosas())
+    }
+
+    test "Give: Camión | When: se consulta hayCosaConPeso de 150 Kg. | Then: debería retornar falso" {
+        assert.notThat(camion.hayCosaConPeso(150))
+    }
+
+    test "Give: Camión | When: se consulta primerCosaConNivelPeligrosidad | Then: debería retornar arenaAGranel" {
+        assert.equals(arenaAGranel, camion.primerCosaConNivelPeligrosidad(1))
+    }
+
+    test "Give: Camión | When: se consulta cosasConNivelDePeligrosidad | Then: debería retornar una lista con arenaAGranel y embalajeDeSeguridad" {
+        assert.equals([arenaAGranel, embalajeDeSeguridad], camion.cosasConNivelDePeligrosidad(1))
+    }
+
+    test "Give: Camión | When: se consulta cosasConNivelDePeligrosidadMayorAlDe arenaAGranel | Then: debería retornar una lista con bumblebee y bateriaAntiarea" {
+        assert.equals([bumblebee, bateriaAntiarea], camion.cosasConNivelDePeligrosidadMayorAlDe(arenaAGranel))
+    }
+
+    test "Give: Camión | When: se consulta estaExcedidoDePeso | Then: debería retornar falso" {
+        assert.notThat(camion.estaExcedidoDePeso())
+    }
+
+    test "Give: Camión | When: se consulta puedeCircularEnRuta y no contiene una cosa cuyo nivel de peligrosidad supere los 500 | Then: debería retornar true" {
+        assert.that(camion.puedeCircularEnRuta(500))
+    }
+
+    test "Give: Camión | When: se consulta hayCosaConPesoEntre 100 Kg y 300 Kg | Then: debería retornar true" {
+        assert.that(camion.hayCosaConPesoEntre(100, 300))
+    }
+
+    test "Give: Camión | When: se consulta cosaMasPesada | Then: debería retornar bumblebee" {
+        assert.equals(bumblebee, camion.cosaMasPesada())
+    }
+
+    test "Give: Camión | When: se consulta totalDeBultos | Then: debería retornar al 7" {
+        // 2 + 1 + 2 + 2
+        assert.equals(7, camion.totalDeBultos())
+    }
+}

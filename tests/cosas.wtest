@@ -1,0 +1,36 @@
+import src.cosas.*
+
+describe "Paquete de Ladrillos | Verificar peso y nivel de peligrosidad" {
+
+    test "Given: Paquete de Ladrillos arranca con 50 ladrillos | When: se consulta por su peso | Then: debería retornar 100 Kg." {
+        assert.equals(100, paqueteDeLadrillos.peso())
+    }
+
+    test "Given: Paquete de Ladrillos arranca con 50 ladrillos | When: la cantidad de ladrillos es de 200 y se consulta por su peso | Then: debería retornar 400 Kg." {
+        paqueteDeLadrillos.cantidadDeLadrillos(200)
+        assert.equals(400, paqueteDeLadrillos.peso())
+    }
+}
+
+describe "Batería Antiaérea | Verificar peso y nivel de peligrosidad" {
+    test "Given: Batería Antiaérea arranca sin misiles | When: se consulta por su peso | Then: debería retornar 200 Kg." {
+        assert.equals(200, bateriaAntiarea.peso())
+    }
+
+    test "Given: Batería Antiaérea arranca sin misiles | When: se le cargan los misiles y se consulta por su peso | Then: debería retornar 300 Kg." {
+        bateriaAntiarea.cargarMisilies()
+        assert.equals(300, bateriaAntiarea.peso())
+    }
+}
+
+describe "Contenedor Portuario | Verificar peso y nivel de peligrosidad" {
+    test "Given: Contenedor Portuario arranca vacío | When: se consulta por su peso | Then: debería retornar 100 Kg." {
+        assert.equals(100, contenedorPortuario.peso())
+    }
+
+    test "Given: Contenedor Portuario arranca vacío | When: se le carga un Knight Rider y un Bumblebee y se consulta por su peso | Then: debería retornar 1400 Kg." {
+        contenedorPortuario.cargar(knightRider)
+        contenedorPortuario.cargar(bumblebee)
+        assert.equals(1400, contenedorPortuario.peso())
+    }
+}
